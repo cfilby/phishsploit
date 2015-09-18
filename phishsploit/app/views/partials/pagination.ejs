@@ -1,0 +1,24 @@
+<div class="center">
+  <ul class="pagination">
+    <% if (page.current == 1) { %>
+      <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+    <% } else { %>
+      <li class="waves-effect"><a href="<%= page.route + "?page=" + (page.current - 1) %>"><i class="material-icons">chevron_left</i></a></li>
+    <% } %>
+
+    <% var pageStart = (page.current > (page.range / 2)) ? page.current - Math.floor(page.range / 2) - 1 : 1;  %>
+    <% for (var i = pageStart; (i <= pageStart + page.range)  && (i <= Math.floor(parseInt(total.count) / page.size) + 1); i++) { %>
+      <% if (i == page.current) { %>
+        <li class="active"><a href="<%= page.route + "?page=" + i %>"><%= i %></a></li>
+      <% } else { %>
+        <li class="waves-effect"><a href="<%= page.route + "?page=" + i %>"><%= i %></a></li>
+      <% } %>
+    <% } %>
+
+    <% if (page.current >= Math.floor(parseInt(total.count) / page.size) + 1) { %>
+      <li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>
+    <% } else { %>
+      <li class="waves-effect"><a href="<%= page.route + "?page=" + (page.current + 1) %>"><i class="material-icons">chevron_right</i></a></li>
+    <% } %>
+  </ul>
+</div>

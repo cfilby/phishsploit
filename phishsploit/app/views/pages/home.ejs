@@ -1,0 +1,54 @@
+<% include ../template/head %>
+
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <span class="title"><h5>PhishSploit Stats</h5></span>
+        <ul class="collection">
+          <li class="collection-item">
+            <span class="title"><strong># Exploits</strong></span>
+            <p><%= exploitCount.count %></p>
+          </li>
+          <li class="collection-item">
+            <span class="title"><strong># Phish</strong></span>
+            <p><%= phishCount.count %></p>
+          </li>
+          <li class="collection-item">
+            <span class="title"><strong>Linked PhishSploits</strong></span>
+            <p><%= exploitPhishCount.count %></p>
+          </li>
+          <li class="collection-item">
+            <span class="title"><strong>Current Date</strong></span>
+            <p><%= new Date().toDateString() %></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <span class="title"><h5>Interesting Exploits</h5></span>
+        <% if (interestingExploits.length) { %>
+          <div class="collection">
+            <% interestingExploits.forEach(function(exploit) { %>
+              <a href="/exploits/specific/<%= exploit.exploitId %>" class="collection-item truncate"><%= exploit.description %></a>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <h4>No interesting exploits found at this time.</h4>
+        <% } %>
+      </div>
+
+      <% if (interestingExploits.length) { %>
+        <div class="card-action">
+          <a href="/exploits/phishsploits">More Interesting Exploits</a>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<% include ../template/foot %>

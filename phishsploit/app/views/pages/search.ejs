@@ -1,0 +1,55 @@
+<% include ../template/head %>
+
+<div class="row">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title grey-text text-darken-4">Search</span>
+      <form class="col s12" action="/search" method="GET">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Search Term" id="term" name="term" type="text" class="validate" value="<%= query.term %>" required>
+            <label for="term">Search Term</label>
+          </div>
+          <div class="input-field col s6">
+            <select id="query_type" name="query_type" value="<%= query.type %>" required>
+              <option value="phish_url" <% if (!query.type || query.type === 'phish_url') { %> selected="selected" <% } %>>Phish URL</option>
+              <option value="exploit_content" <% if (query.type === 'exploit_content') { %> selected="selected" <% } %>>Exploit Content</option>
+            </select>
+            <label for="query_type">Query Type</label>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn waves-effect waves-light right" type="submit">
+            <i class="material-icons">search</i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<% if (query.type) { %>
+<div class="row">
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title grey-text text-darken-4">Results (<%= total.count %>)</span>
+
+      <div class="collection">
+        <% if (type === 'exploit') { %>
+          <% results.forEach(function(result) { %>
+            <a href="/exploits/specific/<%= result.exploitId %>" class="collection-item truncate"><%= result.description %></a>
+          <% }); %>
+        <% } else if (type === 'phish') { %>
+          <% results.forEach(function(result) { %>
+            <a href="/phish/specific/<%= result.phishId %>" class="collection-item truncate"><%= result.fullUrl %></a>
+          <% }); %>
+        <% } %>
+      </div>
+
+      <% include ../partials/searchPagination %>
+    </div>
+  </div>
+</div>
+<% } %>
+
+<% include ../template/foot %>

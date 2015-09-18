@@ -1,0 +1,10 @@
+target
+*.pyc
+__pycache__
+*.db
+data
+node_modules
+materialize
+jquery
+docs
+api

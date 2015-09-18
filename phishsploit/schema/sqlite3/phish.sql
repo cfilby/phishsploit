@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `phish` (
+  `phish_id`    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  `url`         TEXT NOT NULL,
+  `date`        TEXT DEFAULT NULL
+);

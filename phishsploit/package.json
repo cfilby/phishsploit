@@ -1,0 +1,49 @@
+{
+  "name": "phishsploit",
+  "version": "0.0.1",
+  "description": "Phish Exploit Database",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/babel-node app/index.js",
+    "test": "",
+    "live": "./node_modules/.bin/nodemon --exec babel-node --watch app app/index.js",
+    "esdoc": "./node_modules/.bin/esdoc -c esdoc.json",
+    "apidoc": "./node_modules/.bin/apidoc -i app/controllers -o app/api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.cis.uab.edu/cfilby/exploiter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "^1.13.2",
+    "colors": "^1.1.2",
+    "commander": "^2.8.1",
+    "csv-parser": "^1.7.0",
+    "ejs": "^2.3.3",
+    "express": "^4.13.1",
+    "js2xmlparser": "^1.0.0",
+    "moment": "^2.10.3",
+    "morgan": "^1.6.1",
+    "mysql": "^2.8.0",
+    "pg": "^4.4.0",
+    "pg-hstore": "^2.3.2",
+    "pg-promise": "^1.7.8",
+    "sequelize": "^3.4.1",
+    "serve-favicon": "^2.3.0",
+    "sql": "^0.55.0",
+    "sqlite3": "^3.0.9",
+    "apidoc": "~0.13.1"
+  },
+  "devDependencies": {
+    "babel": "^5.6.23",
+    "istanbul": "^0.3.17",
+    "jsdoc": "^3.3.2",
+    "mocha": "^2.2.5",
+    "should": "^7.0.2",
+    "sinon": "^1.15.4",
+    "supertest": "^1.0.1"
+  }
+}

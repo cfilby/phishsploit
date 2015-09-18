@@ -1,0 +1,23 @@
+{
+  "name": "phishsploit",
+  "version": "0.0.1",
+  "authors": [
+    "Cooper Filby <cfilby@cis.uab.edu>"
+  ],
+  "description": "Phish Exploit Database",
+  "main": "index.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "~0.97.0"
+  }
+}

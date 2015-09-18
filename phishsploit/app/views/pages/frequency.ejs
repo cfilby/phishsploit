@@ -1,0 +1,31 @@
+<% include ../template/head %>
+
+<div class="row">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title grey-text text-darken-4">Path Frequencies</span>
+
+
+        <table class="responsive-table striped">
+          <thead>
+            <tr>
+              <th data-field="part">Path Part</th>
+              <th data-field="frequency">Frequency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% frequencies.forEach(function(frequency) { %>
+              <tr>
+                <td><%= frequency.pathPart %></td>
+                <td><%= frequency.pathCount %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+
+        <% include ../partials/pagination %>
+      </div>
+    </div>
+</div>
+
+<% include ../template/foot %>

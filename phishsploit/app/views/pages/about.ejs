@@ -1,0 +1,33 @@
+<% include ../template/head %>
+
+<div class="row">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title grey-text text-darken-4">Our Team</span>
+
+        <ul class="collection">
+        <% users.forEach(function(user) { %>
+          <li class="collection-item avatar">
+            <img src="<%= user.image %>" class="circle"></img>
+            <span class="title"><a href="mailto:<%= user.email%>"><%= user.name %></a></span>
+            <p><%= user.description %></p>
+          </li>
+        <% }); %>
+        </ul>
+
+        <!--
+        <div class="divider"></div>
+
+        <div class="section">
+          <p>
+            The goal of our project was to determine if it's possible to correlate a given Phish to an
+            Exploit listed on ExploitDB by identifying key paths in an exploit and correlating them
+            to Phish path substrings.
+          </p>
+        </div>
+        -->
+      </div>
+    </div>
+</div>
+
+<% include ../template/foot %>
